@@ -91,9 +91,6 @@ def main_function(con, gif_l):
     while True:
         # Check for block current count
         current = get_block_count()
-        # If there is a connection error than sleep for 2 minutes.
-        if current is False:
-            time.sleep(120)
         # If there is a new block found than assign to variable.
         if block_count != current:
             block_count = current
@@ -114,6 +111,8 @@ def main_function(con, gif_l):
                     send_text(con, str(block_count) + pattern)
 
         # sleep
+        if current is False:
+            time.sleep(120)
         if block_count <= 10:
             time.sleep(15)
         elif block_count < 100:
