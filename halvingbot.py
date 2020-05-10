@@ -60,7 +60,7 @@ def main_function(con, gif_l):
         except:
             print("telegram requests error ")
 
-    def get_block_count():
+    def get_block_count(block_count):
         '''
         Function for getting blockheight from blockchain.info's API .
         '''
@@ -76,11 +76,11 @@ def main_function(con, gif_l):
             result = 630000-int(str(soup))
         except:
             print("value error")
-            return False
+            return block_count
         return result
 
     # Variables.
-    block_count = -1
+    block_count = False
     pattern = " Blocks to Halving!!!"
     con = con
     gif_l = gif_l
@@ -88,7 +88,7 @@ def main_function(con, gif_l):
     # Main loop
     while True:
         # Check for block current count
-        current = get_block_count()
+        current = get_block_count(block_count)
         # If there is a connection error than sleep for 2 minutes.
         if current is False:
             time.sleep(120)
