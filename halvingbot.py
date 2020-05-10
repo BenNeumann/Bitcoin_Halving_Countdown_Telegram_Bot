@@ -104,17 +104,22 @@ def main_function(con, gif_l):
             # Else if new block less than 10, send gif from list.
             elif block_count <= 10:
                 send_gif(con, gif_l[block_count], str(block_count) + pattern)
-                time.sleep(15)
             # Else if new block less than 100, send memo every 10 blocks.
             elif block_count < 100:
                 if block_count % 10 == 0:
                     send_text(con, str(block_count) + pattern)
-                    time.sleep(120)
             # Else if new block more than 100, end memo every 50 blocks.
             else:
                 if block_count % 50 == 0:
                     send_text(con, str(block_count) + pattern)
-                time.sleep(600)
+
+        # sleep
+        if block_count <= 10:
+            time.sleep(15)
+        elif block_count < 100:
+            time.sleep(120)
+        else:
+            time.sleep(600)
 
 
 main_function(CON, GIF_L)
