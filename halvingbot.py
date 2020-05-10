@@ -60,7 +60,7 @@ def main_function(con, gif_l):
         except:
             print("telegram requests error ")
 
-    def get_block_count(block_count):
+    def get_block_count():
         '''
         Function for getting blockheight from blockchain.info's API .
         '''
@@ -68,15 +68,17 @@ def main_function(con, gif_l):
             response = requests.get("https://blockchain.info/q/getblockcount")
         except:
             print("requests error ")
+            return False
         try:
             soup = BeautifulSoup(response.text, 'html.parser')
         except:
             print("BeautifulSoup error ")
+            return False
         try:
             result = 630000-int(str(soup))
         except:
             print("value error")
-            return block_count
+            return False
         return result
 
     # Variables.
@@ -88,7 +90,7 @@ def main_function(con, gif_l):
     # Main loop
     while True:
         # Check for block current count
-        current = get_block_count(block_count)
+        current = get_block_count()
         # If there is a connection error than sleep for 2 minutes.
         if current is False:
             time.sleep(120)
@@ -112,7 +114,7 @@ def main_function(con, gif_l):
             else:
                 if block_count % 50 == 0:
                     send_text(con, str(block_count) + pattern)
-                    time.sleep(600)
+                time.sleep(600)
 
 
 main_function(CON, GIF_L)
