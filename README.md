@@ -28,19 +28,19 @@ pip3 install bs4 requests
 
 #### create a telegram bot:
 
-1. add the bot futher to telegram by clicking the link https://t.me/botfather
+1. add the bot father to telegram by clicking the link https://t.me/botfather
 
-2. send the bot futher the message - /newbot
+2. send the bot father the message - /newbot
 
 3. choose a name for your bot.
 
 4. choose a username for your bot.
 
-5. add your bot to telegram by clicking the reply link from bot futher.
+5. add your bot to telegram by clicking the reply link from bot father.
 
 6. send your bot the message "hi" or add the bot to your telegram group.
 
-7. copy the api token from bot futher reply.
+7. copy the api token from bot father reply.
 
 8. found out your group chat id or private chat id by entering the link -<br>
  https://api.telegram.org/botXXX:YYYY/getUpdates
@@ -63,7 +63,7 @@ python3 halvingbot.py
 ```
 
 ## Running the tests
-its a simple script so no testig, sorry about that.
+its a simple script so no testing, sorry about that.
 
 ## License
 
