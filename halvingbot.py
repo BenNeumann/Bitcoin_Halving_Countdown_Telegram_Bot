@@ -68,21 +68,21 @@ def main_function(con, gif_l):
             response = requests.get("https://blockchain.info/q/getblockcount")
         except:
             print("requests error ")
-            return False
+            return 'error'
         try:
             soup = BeautifulSoup(response.text, 'html.parser')
         except:
             print("BeautifulSoup error ")
-            return False
+            return 'error'
         try:
             result = 630000-int(str(soup))
         except:
             print("value error")
-            return False
+            return 'error'
         return result
 
     # Variables.
-    block_count = False
+    block_count = 'error'
     pattern = " Blocks to Halving!!!"
     con = con
     gif_l = gif_l
