@@ -92,7 +92,7 @@ def main_function(con, gif_l):
         # Check for block current count
         current = get_block_count()
         # If there is a new block found than assign to variable.
-        if block_count != current:
+        if block_count != current and current!= 'error':
             block_count = current
             # If new block equle to 0 countdown, send halving gif and break .
             if block_count <= 0:
@@ -111,7 +111,7 @@ def main_function(con, gif_l):
                     send_text(con, str(block_count) + pattern)
 
         # sleep
-        if current is False:
+        if current is 'error':
             time.sleep(120)
         if block_count <= 10:
             time.sleep(15)
